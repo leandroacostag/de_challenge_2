@@ -1,0 +1,3 @@
+pydantic
+duckdb
+load_dotenv
