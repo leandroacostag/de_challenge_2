@@ -94,6 +94,10 @@ The lineage for the output tables is as follows:
 
 3. **Incremental Loading**: Efficiently processing only new data since the last run to optimize performance.
 
+4. **Dedupe**: Removing duplicate records to ensure data integrity and consistency when running queries.
+
+5. **Indexing and Partitioning**: Enhancing query performance by creating indexes on frequently queried columns and partitioning tables based on specific criteria.
+
 ## Indexing and Partitioning
 
 ### Transaction Table
@@ -116,6 +120,10 @@ Indexes:
 
 - `user_id`
 - `login_id`
+
+## Queries examples
+
+- You can find queries to answer the questions in the challenge in the [queries](./queries/examples.md) directory.
 
 ## Assumptions
 
