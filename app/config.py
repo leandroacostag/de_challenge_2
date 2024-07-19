@@ -6,3 +6,4 @@ load_dotenv.load_dotenv()
 
 process_all = bool(int(os.getenv("PROCESS_ALL", 0)))
 logs_level = os.getenv("LOGS_LEVEL", "INFO")
+data_path = os.getenv("DATA_PATH", "data")

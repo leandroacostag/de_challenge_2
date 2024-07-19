@@ -5,10 +5,10 @@ import os
 import logging
 
 # Local imports
-from config import process_all
+from config import process_all, data_path
 
-input_path = os.path.join("../data", "input")
-output_path = os.path.join("../data", "output")
+input_path = os.path.join(data_path, "input")
+output_path = os.path.join(data_path, "output")
 
 logger = logging.getLogger(__name__)
 
