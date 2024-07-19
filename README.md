@@ -36,6 +36,11 @@ To get started with the `de_challenge_2` project, follow these steps:
 
 5. Rename the `.env.example` file to `.env` and update the environment variables as needed.
 
+   - `PROCESS_ALL`: Set to `1` to process all data or `0` to process only new data.
+   - `LOGS_LEVEL`: Set the logging level to `DEBUG` if you want to see detailed logs. Otherwise, set it to `INFO`.
+   - `INPUT_DATA_PATH`: The path to the input data directory.
+   - `OUTPUT_DATA_PATH`: The path to the output data directory.
+
 6. Unzip the `deposit.zip` file located on the `data/input` directory.
 
 7. Run the following command to execute the project:
