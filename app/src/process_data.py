@@ -5,7 +5,10 @@ import os
 import logging
 
 # Local imports
-from config import process_all, input_data_path, output_data_path
+from config import process_all
+
+input_path = os.path.join("../data", "input")
+output_path = os.path.join("../data", "output")
 
 logger = logging.getLogger(__name__)
 
@@ -16,15 +19,15 @@ def read_input_data(conn: duckdb.DuckDBPyConnection):
     try:
         input_files = ["deposit.csv", "withdrawl.csv", "event.csv"]
         for file in input_files:
-            if os.path.exists(f"{input_data_path}/{file}"):
-                logger.info(f"Reading {file} from {input_data_path}/{file}")
+            if os.path.exists(f"{input_path}/{file}"):
+                logger.info(f"Reading {file} from {input_path}/{file}")
                 table_name = file.replace(".csv", "")
                 conn.sql(
-                    f"CREATE TABLE {table_name} AS SELECT * FROM read_csv('{input_data_path}/{file}');"
+                    f"CREATE TABLE {table_name} AS SELECT * FROM read_csv('{input_path}/{file}');"
                 )
             else:
                 logger.error(
-                    f"Couldn't find {file} in {input_data_path}. Please check if the file exists."
+                    f"Couldn't find {file} in {input_path}/. Please check if the file exists."
                 )
                 raise FileNotFoundError
     except Exception as e:
@@ -37,16 +40,16 @@ def read_output_data(conn: duckdb.DuckDBPyConnection):
     input_files = ["transaction.csv", "user_login.csv"]
     try:
         for file in input_files:
-            if os.path.exists(f"{output_data_path}/{file}"):
-                logger.info(f"Reading {file} from {output_data_path}/{file}")
+            if os.path.exists(f"{output_path}/{file}"):
+                logger.info(f"Reading {file} from {output_path}/{file}")
                 table_name = file.replace(".csv", "")
                 conn.sql(
-                    f"CREATE TABLE {table_name} AS SELECT * FROM read_csv('{output_data_path}/{file}');"
+                    f"CREATE TABLE {table_name} AS SELECT * FROM read_csv('{output_path}/{file}');"
                 )
 
             else:
                 logger.error(
-                    f"Couldn't find {file} in {output_data_path}. Please check if the file exists."
+                    f"Couldn't find {file} in {output_path}/. Please check if the file exists."
                 )
                 raise FileNotFoundError
 
@@ -174,8 +177,8 @@ def process_data():
 
     # Write transaction and user_login tables to csv files *ONLY NEEDED BECAUSE WE'RE NOT RUNNING THIS IN PUSHDOWN MODE*
     logger.info("Writing transaction and user_login tables to csv files...")
-    conn.sql(f"COPY transaction TO '{output_data_path}/transaction.csv';")
-    conn.sql(f"COPY user_login TO '{output_data_path}/user_login.csv';")
+    conn.sql(f"COPY transaction TO '{output_path}/transaction.csv';")
+    conn.sql(f"COPY user_login TO '{output_path}/user_login.csv';")
 
     # Close duckdb connection
     conn.close()

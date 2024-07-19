@@ -38,8 +38,6 @@ To get started with the `de_challenge_2` project, follow these steps:
 
    - `PROCESS_ALL`: Set to `1` to process all data or `0` to process only new data.
    - `LOGS_LEVEL`: Set the logging level to `DEBUG` if you want to see detailed logs. Otherwise, set it to `INFO`.
-   - `INPUT_DATA_PATH`: The path to the input data directory.
-   - `OUTPUT_DATA_PATH`: The path to the output data directory.
 
 6. Unzip the `deposit.zip` file located on the `data/input` directory.
 
@@ -61,7 +59,7 @@ To get started with the `de_challenge_2` project, follow these steps:
 3. Run the Docker container by executing the following command:
 
    ```
-    docker run --env-file /home/ubuntu/de_challenge_2/.env -v /home/ubuntu/de_challenge_2/data:/app/data de_challenge_2
+    docker run --env-file /home/ubuntu/de_challenge_2/.env -v /home/ubuntu/de_challenge_2/data:/data de_challenge_2
    ```
 
    Replace `/home/ubuntu/de_challenge_2/data` with the path to the data directory on your local machine.
