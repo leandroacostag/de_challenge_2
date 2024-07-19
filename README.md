@@ -76,9 +76,11 @@ The Entity Relationship Diagram (ERD) for the `de_challenge_2` project is as fol
 The lineage for the output tables is as follows:
 
 - `transaction` table is derived from the `deposit` and `withdrawal` tables.
+
   ![transaction_lineage](./images/transaction_lineage.png)
 
 - `user_login` table is derived from the `event` table.
+
   ![user_login_lineage](./images/user_login_lineage.png)
 
 ## Data Modeling Techniques
@@ -123,9 +125,3 @@ Indexes:
 ## Queries examples
 
 - You can find queries to answer the questions in the challenge in the [queries](./queries/examples.md) directory.
-
-## Assumptions
-
-This process relies on the following assumptions:
-
-- Latency is not a concern. If it were, we would need to consider a different approach to api calls.
