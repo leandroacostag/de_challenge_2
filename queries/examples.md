@@ -79,7 +79,7 @@ SELECT
 FROM
     transaction
     WHERE
-    DATE(event_timestamp) = '2023-07-15'
+    CAST(event_timestamp AS DATE) = '2023-07-15'
     AND transaction_type = 'deposit';
 ```
 
@@ -91,7 +91,7 @@ SELECT
 FROM
     transaction
     WHERE
-    DATE(event_timestamp) = '2023-07-15'
+    CAST(event_timestamp AS DATE) = '2023-07-15'
     AND transaction_type = 'withdraw';
 ```
 
@@ -103,7 +103,7 @@ SELECT
 FROM
     transaction
 WHERE
-    DATE(event_timestamp) = '2023-07-15'
+    CAST(event_timestamp AS DATE) = '2023-07-15'
     AND transaction_type = 'deposit'
     AND currency = 'ars';
 ```
