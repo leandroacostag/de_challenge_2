@@ -67,7 +67,8 @@ FROM
 user_login
 WHERE
 user_id = '26751be1181460baf78db8d5eb7aad39'
-AND event_timestamp BETWEEN '2023-07-15' AND '2023-07-20';
+AND event_timestamp BETWEEN '2023-07-15' AND '2023-07-20'
+GROUP BY user_id;
 ```
 
 ## Number of unique currencies deposited on a given day
