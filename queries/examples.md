@@ -47,11 +47,14 @@ HAVING
 ```sql
 SELECT
   user_id,
-  MAX(event_timestamp) AS last_login
+  event_timestamp AS last_login
 FROM
   user_login
 WHERE
-    user_id = '26751be1181460baf78db8d5eb7aad39';
+    user_id = '26751be1181460baf78db8d5eb7aad39'
+ORDER BY
+         last_login DESC
+LIMIT 1;
 ```
 
 ## How many times a user has made a login between two dates
